@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>SimpleWebApi</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Furion" Version="3.0.5" />
+    <PackageReference Include="Furion.Extras.ObjectMapper.Mapster" Version="3.0.5" />
+    <PackageReference Include="Furion.Extras.Logging.Serilog" Version="3.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="DbContexts\" />
+    <None Remove="Furion" />
+    <None Remove="Furion.Extras.ObjectMapper.Mapster" />
+    <None Remove="Furion.Extras.Logging.Serilog" />
+    <None Remove="Controllers\" />
+    <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <None Remove="Services\" />
+    <None Remove="Services\Extensions\" />
+    <None Remove="DbContexts\Extensions\" />
+    <None Remove="Models\Management\" />
+    <None Remove="Repositories\" />
+    <None Remove="Repositories\Interfaces\" />
+    <None Remove="Repositories\Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DbContexts\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Extensions\" />
+    <Folder Include="DbContexts\Extensions\" />
+    <Folder Include="Models\Management\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Repositories\Interfaces\" />
+    <Folder Include="Repositories\Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleWebApi.Configuration\SimpleWebApi.Configuration.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
