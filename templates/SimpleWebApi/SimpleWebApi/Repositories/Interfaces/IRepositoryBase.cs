@@ -7,7 +7,8 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace SimpleWebApi.Repositories.Interfaces
 {
-	public interface IRepositoryBase<TEntity, in TKey> where TEntity : class
+    public interface IRepositoryBase<TEntity, in TKey>
+        where TEntity : class, IEntity<TKey>
     {
         DbSet<TEntity> Entities { get; }
 
