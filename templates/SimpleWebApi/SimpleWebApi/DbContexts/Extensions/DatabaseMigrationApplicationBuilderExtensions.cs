@@ -17,12 +17,12 @@ namespace SimpleWebApi.DbContexts.Extensions
 {
     public static class DatabaseMigrationApplicationBuilderExtensions
     {
-        public static IApplicationBuilder EnsureDatabasesMigrated<TManagementIdentityDbContext>(this IApplicationBuilder app)
-            where TManagementIdentityDbContext : DbContext
+        public static IApplicationBuilder EnsureDatabasesMigrated<TManagementDbContext>(this IApplicationBuilder app)
+            where TManagementDbContext : DbContext
         {
             // 在此处实现数据库迁移
             // 示例中使用基于内存的数据库无法使用迁移
-            // using (var dbContext = App.GetRequiredService<TManagementIdentityDbContext>())
+            // using (var dbContext = App.GetRequiredService<TManagementDbContext>())
             // {
             //     dbContext.Database.Migrate();
             // }
