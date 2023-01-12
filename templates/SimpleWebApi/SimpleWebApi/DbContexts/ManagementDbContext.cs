@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace SimpleWebApi.DbContexts
 {
+    /// <summary>
+    /// 管理数据库上下文
+    /// </summary>
     public class ManagementDbContext : DbContext
     {
         public ManagementDbContext(DbContextOptions<ManagementDbContext> options) : base(options)

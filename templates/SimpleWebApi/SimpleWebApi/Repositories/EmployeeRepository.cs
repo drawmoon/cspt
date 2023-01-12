@@ -5,7 +5,10 @@ using SimpleWebApi.Repositories.Interfaces;
 
 namespace SimpleWebApi.Repositories
 {
-	public class EmployeeRepository : RepositoryBase<Employee, int>, IEmployeeRepository
+    /// <summary>
+    /// 员工信息仓储
+    /// </summary>
+    public class EmployeeRepository : RepositoryBase<ManagementDbContext, Employee, int>, IEmployeeRepository
     {
 		public EmployeeRepository(ManagementDbContext dbContext) : base(dbContext)
 		{

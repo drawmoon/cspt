@@ -61,7 +61,7 @@ var app = builder.Build();
 // 使用数据库迁移
 app.EnsureDatabasesMigrated<ManagementDbContext>();
 // 使用初始化管理员账号
-await app.EnsureSeedIdentityData();
+await app.EnsureSeedSampleData();
 
 app.MapControllers();
 

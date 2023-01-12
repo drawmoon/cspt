@@ -30,7 +30,7 @@ namespace SimpleWebApi.DbContexts.Extensions
             return app;
         }
 
-        public static async Task<IApplicationBuilder> EnsureSeedIdentityData(this IApplicationBuilder app)
+        public static async Task<IApplicationBuilder> EnsureSeedSampleData(this IApplicationBuilder app)
         {
             var sampleData = App.Configuration.GetSection(nameof(SampleData)).Get<SampleData>();
 
