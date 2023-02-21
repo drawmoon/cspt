@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SimpleWebApi.Models.Management;
+using SimpleWebApi.Dtos;
 using SimpleWebApi.Services.Interfaces;
 
 namespace SimpleWebApi.Controllers
@@ -28,7 +28,7 @@ namespace SimpleWebApi.Controllers
         /// <param name="pageSize">页的大小</param>
         /// <returns></returns>
         [HttpGet]
-		public async Task<ActionResult<PagedList<Employee>>> GetAll(int page = 1, int pageSize = 10)
+		public async Task<ActionResult<PagedList<EmployeeDTO>>> GetAll(int page = 1, int pageSize = 10)
 		{
 			return await employeeService.GetEmployees(page, pageSize);
 		}

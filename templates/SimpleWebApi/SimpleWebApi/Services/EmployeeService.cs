@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Furion.DatabaseAccessor;
+using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using NInfra.LinqExtensions.Extensions;
+using SimpleWebApi.Dtos;
 using SimpleWebApi.Models.Management;
 using SimpleWebApi.Repositories.Interfaces;
 using SimpleWebApi.Services.Interfaces;
@@ -12,16 +14,17 @@ namespace SimpleWebApi.Services
 {
 	public class EmployeeService : IEmployeeService
 	{
-        private readonly IEmployeeRepository employeRepository;
+        private readonly IEmployeeRepository employeeRepository;
 
-        public EmployeeService(IEmployeeRepository employeRepository)
+        public EmployeeService(IEmployeeRepository employeeRepository)
 		{
-            this.employeRepository = employeRepository;
+            this.employeeRepository = employeeRepository;
         }
 
-        public async Task<PagedList<Employee>> GetEmployees(int page = 1, int pageSize = 10)
+        public async Task<PagedList<EmployeeDTO>> GetEmployees(int page = 1, int pageSize = 10)
         {
-            return await employeRepository.Entities.ToPagedListAsync(page, pageSize);
+            var employees = await employeeRepository.Entities.ToPagedListAsync(page, pageSize);
+            return employees.Adapt<PagedList<EmployeeDTO>>();
         }
     }
 }
